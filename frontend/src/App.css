@@ -1,0 +1,564 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 230px;
+  background: #1f2937;
+  color: white;
+  padding: 25px 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 40px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar button {
+  background: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.sidebar button:hover {
+  background: #374151;
+}
+
+/* Main */
+
+.main-content {
+  flex: 1;
+  padding: 35px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #6b7280;
+}
+
+/* Statistics */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  color: #6b7280;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Tickets */
+
+.tickets-section {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.tickets-section h2 {
+  margin-bottom: 20px;
+}
+
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ticket h3 {
+  margin-bottom: 5px;
+}
+
+.ticket p {
+  color: #6b7280;
+}
+
+.priority {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+/* Create Ticket */
+
+.create-ticket {
+  max-width: 750px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.create-ticket h2 {
+  margin-bottom: 8px;
+}
+
+.form-description {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.create-button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  background: #1d4ed8;
+}
+
+.create-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.form-message {
+  margin-top: 20px;
+  font-weight: bold;
+}
+/* Ticket Search and Filters */
+
+.ticket-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.ticket-controls input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.ticket-controls select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  background: white;
+}
+
+.ticket-controls input:focus,
+.ticket-controls select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.ticket small {
+  color: #6b7280;
+  font-size: 13px;
+}
+/* ================================================= */
+/* TICKET SEARCH AND FILTERS */
+/* ================================================= */
+
+.ticket-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.ticket-controls input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.ticket-controls select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  background: white;
+}
+
+.ticket-controls input:focus,
+.ticket-controls select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+
+/* ================================================= */
+/* TICKET DETAILS */
+/* ================================================= */
+
+.back-button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+
+.ticket-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+}
+
+
+.details-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.details-card h2 {
+  margin-bottom: 15px;
+}
+
+
+.ticket-description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+
+.ticket-meta {
+  margin-top: 20px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+/* ================================================= */
+/* AI ANALYSIS */
+/* ================================================= */
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.ai-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.ai-grid span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+.ai-grid strong {
+  font-size: 16px;
+}
+
+
+/* ================================================= */
+/* DETAILS TEXT */
+/* ================================================= */
+
+.details-card p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+
+.ticket small {
+  color: #6b7280;
+  font-size: 13px;
+}
+/* ================================================= */
+/* TICKET ACTIONS */
+/* ================================================= */
+
+.ticket-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ================================================= */
+/* DELETE BUTTON */
+/* ================================================= */
+
+.delete-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #b91c1c;
+}
+
+
+/* ================================================= */
+/* TICKET DETAILS */
+/* ================================================= */
+
+.back-button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+
+.ticket-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+}
+
+
+.details-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.details-card h2 {
+  margin-bottom: 15px;
+}
+
+
+.ticket-description {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+
+.ticket-meta {
+  margin-top: 20px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+/* ================================================= */
+/* AI ANALYSIS */
+/* ================================================= */
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.ai-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.ai-grid span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+.ai-grid strong {
+  font-size: 16px;
+}
+
+
+/* ================================================= */
+/* DETAILS TEXT */
+/* ================================================= */
+
+.details-card p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* DELETE FROM DETAILS */
+/* ================================================= */
+
+.details-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.delete-details-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.delete-details-button:hover {
+  background: #b91c1c;
+}
+
+
+/* ================================================= */
+/* SEARCH + FILTER */
+/* ================================================= */
+
+.ticket-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+
+.ticket-controls input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+
+.ticket-controls select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  background: white;
+}
+
+
+.ticket-controls input:focus,
+.ticket-controls select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+
+.ticket small {
+  color: #6b7280;
+  font-size: 13px;
+}
